@@ -1,6 +1,35 @@
-hey 
-my name is Jenna and I think this is weird
-Hey girl
 
-My name is Jenna again
-My name is easy to spell
+clear all
+clear figure
+
+%% Variables 
+
+t_arfi = 0.1875;
+filteredData = 1; % 1 for using motion filtered data, 0 for raw data
+
+%% Loading the Files
+
+dataset1 = 
+dataset2 = 
+
+load (dataset1)
+if filteredData
+    arfidata = filtdata;    % Using filtered data
+focdata = arfidata;
+load(dataset2)
+if filteredData
+    arfidata = filtdata;    % Using filtered data
+unfocdata = arfidata;
+
+
+
+%% Kickback Filter 
+
+[resultantarfi] = kickbackfilter(respath1, respath2, filteredData,t_arfi);
+
+
+%% 
+if filteredData
+    arfidata = filtdata;    % Using filtered data
+end
+% quickArfiDisplay(arfidata,cc_coef,t,angular,radial, 'Before', t_arfi, 'Before', [0 20], 1, apex);
