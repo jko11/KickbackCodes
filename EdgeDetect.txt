@@ -15,10 +15,12 @@ dataset2 =
 load (dataset1)
 if filteredData
     arfidata = filtdata;    % Using filtered data
+end
 focdata = arfidata;
 load(dataset2)
 if filteredData
     arfidata = filtdata;    % Using filtered data
+end
 unfocdata = arfidata;
 
 
@@ -27,9 +29,5 @@ unfocdata = arfidata;
 
 [resultantarfi] = kickbackfilter(respath1, respath2, filteredData,t_arfi);
 
-
-%% 
-if filteredData
-    arfidata = filtdata;    % Using filtered data
-end
 % quickArfiDisplay(arfidata,cc_coef,t,angular,radial, 'Before', t_arfi, 'Before', [0 20], 1, apex);
+quickArfiOverlay(arfidata,I,Q,t_bmode_ind,t,angular,radial,iq_axial,ang_string,t_arfi,title_string,arfiLim)
