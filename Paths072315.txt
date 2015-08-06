@@ -1,0 +1,63 @@
+
+Paths for the resfiles for the Dog Studies	
+
+July 23, 2015
+Location 1 -Beating
+- '/kickback_beating/location1/res_20150723102110' W
+- '/kickback_beating/location1/res_20150723102123' WU
+- '/kickback_beating/location1/res_20150723102200' PW
+- '/kickback_beating/location1/res_20150723102216' PWU
+- '/kickback_beating/location1/res_20150723102351' W
+- '/kickback_beating/location1/res_20150723102404' WU
+- '/kickback_beating/location1/res_20150723102432' PW
+- '/kickback_beating/location1/res_20150723102445' PWU
+- '/kickback_beating/location1/res_20150723102520' W
+- '/kickback_beating/location1/res_20150723102533' WU
+- '/kickback_beating/location1/res_20150723102610' PW
+- '/kickback_beating/location1/res_20150723102622' PWU
+
+Location2 -Beating 
+
+- '/kickback_beating/location2/res_20150723102945' W
+- '/kickback_beating/location2/res_20150723102958' WU
+- '/kickback_beating/location2/res_20150723103059' PW
+- '/kickback_beating/location2/res_20150723103113' PWU
+- '/kickback_beating/location2/res_20150723103250' W
+- '/kickback_beating/location2/res_20150723103303' WU
+- '/kickback_beating/location2/res_20150723103344' PW
+- '/kickback_beating/location2/res_20150723103356' PWU
+- '/kickback_beating/location2/res_20150723103431' W
+- '/kickback_beating/location2/res_20150723103444' WU
+- '/kickback_beating/location2/res_20150723103521' PW
+- '/kickback_beating/location2/res_20150723103534' PWU
+
+Location3 - Beating
+
+- '/kickback_beating/location3/res_20150723104248' W
+- '/kickback_beating/location3/res_20150723104312' WU
+- '/kickback_beating/location3/res_20150723104527' PW
+- '/kickback_beating/location3/res_20150723104546' PWU
+- '/kickback_beating/location3/res_20150723104610' W
+- '/kickback_beating/location3/res_20150723104642' PW
+- '/kickback_beating/location3/res_20150723104702' PWU
+- '/kickback_beating/location3/res_20150723104738' W
+- '/kickback_beating/location3/res_20150723104804' WU
+- '/kickback_beating/location3/res_20150723104853' PW
+- '/kickback_beating/location3/res_20150723104919' PWU
+
+
+
+Only Location 
+
+-  '/kickback_still/res_20150723202651' W
+-  '/kickback_still/res_20150723202705' WU
+-  '/kickback_still/res_20150723202720' PW
+-  '/kickback_still/res_20150723202734' PWU
+-  '/kickback_still/res_20150723202747' W
+-  '/kickback_still/res_20150723202800' WU
+-  '/kickback_still/res_20150723202817' PW
+-  '/kickback_still/res_20150723202830' PWU
+-  '/kickback_still/res_20150723202845' W
+-  '/kickback_still/res_20150723202858' WU
+-  '/kickback_still/res_20150723202913' PW
+-  '/kickback_still/res_20150723202926' PWU
