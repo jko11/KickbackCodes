@@ -49,15 +49,15 @@ Location3 - Beating
 
 Only Location 
 
--  '/kickback_still/res_20150723202651' W
--  '/kickback_still/res_20150723202705' WU
--  '/kickback_still/res_20150723202720' PW
--  '/kickback_still/res_20150723202734' PWU
--  '/kickback_still/res_20150723202747' W
--  '/kickback_still/res_20150723202800' WU
--  '/kickback_still/res_20150723202817' PW
--  '/kickback_still/res_20150723202830' PWU
--  '/kickback_still/res_20150723202845' W
--  '/kickback_still/res_20150723202858' WU
--  '/kickback_still/res_20150723202913' PW
--  '/kickback_still/res_20150723202926' PWU
+-  'kickback_still/res_20150723202651' W
+-  'kickback_still/res_20150723202705' WU
+-  'kickback_still/res_20150723202720' PW
+-  'kickback_still/res_20150723202734' PWU
+-  'kickback_still/res_20150723202747' W
+-  'kickback_still/res_20150723202800' WU
+-  'kickback_still/res_20150723202817' PW
+-  'kickback_still/res_20150723202830' PWU
+-  'kickback_still/res_20150723202845' W
+-  'kickback_still/res_20150723202858' WU
+-  'kickback_still/res_20150723202913' PW
+-  'kickback_still/res_20150723202926' PWU
