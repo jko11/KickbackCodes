@@ -1,33 +1,94 @@
 
+
 clear all
 clear figure
 
 %% Variables 
 
 t_arfi = 0.1875;
-filteredData = 1; % 1 for using motion filtered data, 0 for raw data
+filteredData = 0; % 1 for using motion filtered data, 0 for raw data
 
 %% Loading the Files
+% dataset1 is the focused data and dataset2 is the unfocused data
+dataset1 = {'kickback_still/res_20150723202651';...
+    'kickback_still/res_20150723202747'; ...
+    'kickback_still/res_20150723202845'};
+% 
+dataset2 = {'kickback_still/res_20150723202705';...
+    'kickback_still/res_20150723202800';...
+    'kickback_still/res_20150723202858'};
 
-dataset1 = 
-dataset2 = 
 
-load (dataset1)
+
+%% Looping through...
+for i = 1:size(dataset1, 1)
+
+    load (dataset1{i})
+    focdata_raw = arfidata;
 if filteredData
     arfidata = filtdata;    % Using filtered data
 end
-focdata = arfidata;
-load(dataset2)
+focdata_filt = arfidata;
+load(dataset2{i})
+unfocdata_raw = arfidata;
 if filteredData
     arfidata = filtdata;    % Using filtered data
 end
-unfocdata = arfidata;
+unfocdata_filt = arfidata;
 
-
-
+%% Making Raw and Filt ARFI Images 
+[max_disp_focraw] = quickArfiDisplay(focdata_raw, cc_coef, t, angular, radial, 'Raw Focused',...
+    t_arfi, 'Raw Focused', [0 25], 1, apex);
+% [max_disp_focfilt] = quickArfiDisplay(focdata_filt, cc_coef, t, angular, radial, 'Raw Focused',...
+%     t_arfi, 'Raw Focused', [0 25], 1, apex);
+% [max_disp_unfocraw] = quickArfiDisplay(unfocdata_raw, cc_coef, t, angular, radial, 'Raw Focused',...
+%     t_arfi, 'Raw Focused', [0 25], 1, apex);
+% [max_disp_unfocraw] = quickArfiDisplay(focdata_raw, cc_coef, t, angular, radial, 'Raw Focused',...
+%     t_arfi, 'Raw Focused', [0 25], 1, apex);
 %% Kickback Filter 
 
-[resultantarfi] = kickbackfilter(respath1, respath2, filteredData,t_arfi);
+[resultantarfi(:,:,:,i)] = kickbackfilter(dataset1{i}, dataset2{i}, filteredData,t_arfi);
+Max_image_kbfilt = squeeze(sum(resultantarfi(:,:,13:17,i),3));
+Max_image_kbfilt(316:320,:) = 0;
 
-% quickArfiDisplay(arfidata,cc_coef,t,angular,radial, 'Before', t_arfi, 'Before', [0 20], 1, apex);
-quickArfiOverlay(arfidata,I,Q,t_bmode_ind,t,angular,radial,iq_axial,ang_string,t_arfi,title_string,arfiLim)
+%% B-mode Image
+mag=quickBmodeDisplay(I,Q,13,angular, radial, 'Angle', 'Test', 0, apex);
+
+%% Thresholds 
+level = graythresh(mag);
+Mask = im2bw(mag,level);
+Arfiresult = Max_image_kbfilt.*Mask;
+Raw = squeeze(sum(focdata_raw(:,:,13:17),3));
+Raw(316:320,:) =0;
+Arfi = Raw.*Mask;
+
+%% Zscore
+
+% Zresultant(i) = mean(mean(zscore(Arfiresult)));
+% Zarfi(i) = mean(mean(zscore(Arfi)));
+
+% SDArfi(i) = mean(std(Arfi));
+% SDArfires(i) = mean(std(Arfiresult));
+% 
+% Zres = std(Arfiresult).^2;
+% Zressum = sum(Zres);
+% Zresavg(i) = sqrt(Zressum)/(size(Arfiresult,1)*size(Arfiresult,2));
+% 
+% Zarf = std(Arfi).^2;
+% Zarfsum = sum(Zarf);
+% Zarfavg(i) = sqrt(Zarfsum)/(size(Arfi,1)*size(Arfi,2));
+
+%% ttest 
+
+RMSArfi(i) = sqrt(sum(sum(Arfi.^2))/(size(Arfi,1).*size(Arfi,2)));
+RMSArfires(i) = sqrt(sum(sum(Arfiresult.^2))/(size(Arfiresult,1).*size(Arfiresult,2)));
+
+end
+
+% [h,p] = ttest2(Zarfi, Zresultant)
+
+% [h, p] = ttest2(SDArfi, SDArfires)
+
+% [h,p] = ttest2(Zarfavg, Zresavg)
+
+[h,p] = ttest2(RMSArfi, RMSArfires)
